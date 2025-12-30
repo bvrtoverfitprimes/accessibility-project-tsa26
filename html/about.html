@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Accessibility Interface</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="site-header">
+        <nav class="nav-container">
+            <a href="/index.html" class="nav-brand">Accessibility Interface</a>
+            <ul class="nav-links">
+                <li><a href="/index.html" class="nav-link">Home</a></li>
+                <li><a href="offerings.html" class="nav-link">Offerings</a></li>
+                <li><a href="about.html" class="nav-link active">About Us</a></li>
+                <li><a href="playground.html" class="nav-link">Playground</a></li>
+                <li><a href="updates.html" class="nav-link">Dev Updates</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="login.html" class="nav-action nav-login">Log in</a>
+                <a href="get-started.html" class="nav-action nav-cta">Get Started</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <div id="canvas-container">
+                <canvas id="webCanvas"></canvas>
+            </div>
+            <div class="parallax-group content">
+                <h1 class="main-title">About Us</h1>
+                <p class="subtitle">Who we are</p>
+            </div>
+        </section>
+
+        <section class="intro-section">
+            <p class="intro-text">Our TSA 2025–2026 project is a prototype that explores accessibility through two delivered tools: a downloadable magnification overlay and a downloadable live captions overlay (both demonstrated on Windows), plus on-site web demos in the Playground.</p>
+        </section>
+
+        <section class="why-section">
+            <p class="section-text">Privacy and control are core to our mission. In this prototype, the downloadable tools run locally, and the website focuses on showing how the experience works through demos and controlled user flow.</p>
+
+            <h2 class="section-heading">Project Overview</h2>
+            <p class="section-text">This project demonstrates a path toward a broader accessibility media hub. Current delivered pieces include:</p>
+            <ul class="feature-list">
+                <li><strong>Downloadable live captions overlay (Windows demo)</strong> that transcribes system audio into an always-on-top captions window.</li>
+                <li><strong>Downloadable magnification overlay (Windows demo)</strong> with lens and bar modes for reading and focus.</li>
+                <li><strong>Playground web demos</strong> that show magnification and captions behavior in a controlled environment.</li>
+                <li><strong>Admin user flow control</strong> for protected user management in the prototype.</li>
+            </ul>
+
+            <p class="section-text">Future expansion ideas (beyond the current prototype) include deeper personalization, device integration, and richer accessibility features. For the school project, we focused on demonstrating the core experience for captions and magnification.</p>
+        </section>
+
+    </main>
+
+    <script src="../js/main.js" defer></script>
+</body>
+</html>

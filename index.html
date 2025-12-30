@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Web Constellation</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="site-header">
+        <nav class="nav-container">
+            <a href="/index.html" class="nav-brand">Accessibility Interface</a>
+            <ul class="nav-links">
+                <li><a href="/index.html" class="nav-link active">Home</a></li>
+                <li><a href="html/offerings.html" class="nav-link">Offerings</a></li>
+                <li><a href="html/about.html" class="nav-link">About Us</a></li>
+                <li><a href="html/playground.html" class="nav-link">Playground</a></li>
+                <li><a href="html/updates.html" class="nav-link">Dev Updates</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="html/login.html" class="nav-action nav-login" aria-label="Log in">Log in</a>
+                <a href="html/get-started.html" class="nav-action nav-cta" aria-label="Get started">Get Started</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <div id="canvas-container">
+                <canvas id="webCanvas"></canvas>
+            </div>
+            <div class="parallax-group content">
+                <h1 class="main-title">Accessibility Interface</h1>
+                <p class="subtitle">A school project prototype exploring accessibility tools through web demos and downloadable utilities.</p>
+            </div>
+        </section>
+
+        <section class="intro-section">
+            <p class="intro-text">Modern computers are powerful, but many interfaces remain difficult or impossible to use for people with disabilities. This project explores software-based accessibility tools that help users navigate, understand, and interact with digital systems more effectively.</p>
+        </section>
+
+        <section class="why-section">
+            <h2 class="section-heading">Why Accessibility Matters</h2>
+            <p class="section-text">Millions of people rely on assistive technologies to access digital information. However, many existing tools focus on basic compatibility rather than usability, context, or intent.</p>
+            <p class="section-text">This platform aims to bridge that gap by:</p>
+            <ul class="feature-list">
+                <li>Reducing cognitive and sensory overload</li>
+                <li>Translating interface structure into meaningful guidance</li>
+                <li>Supporting alternative input and feedback methods</li>
+            </ul>
+        </section>
+
+        <section class="explore-section">
+            <h2 class="section-heading">What This Platform Explores</h2>
+            <p class="section-subheading">Current Tools (Prototype)</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3 class="feature-title">Live Captions</h3>
+                    <p class="feature-description">Downloadable live captions overlay (Windows demo) + an on-site simulated captions demo</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title">Screen Magnification</h3>
+                    <p class="feature-description">Downloadable magnifier overlay (Windows demo) + on-site circle/bar magnifier prototypes</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="feature-title">Admin Controls</h3>
+                    <p class="feature-description">Admin portal for user flow control and protected user management (demo)</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="disclaimer-section">
+            <p class="disclaimer-text">This project is currently in active development and serves as a prototype for research and educational purposes.</p>
+        </section>
+
+        <section class="cta-section">
+            <a href="html/login.html" class="cta-button">Log In to Continue</a>
+            <a href="html/playground.html" class="cta-button-secondary">Access the Prototype</a>
+        </section>
+
+        <footer class="site-footer">
+            <p class="footer-text">Designed with accessibility-first principles, usability research, and progressive enhancement in mind.</p>
+        </footer>
+    </main>
+
+    <script src="js/main.js" defer></script>
+
+</body>
+</html>

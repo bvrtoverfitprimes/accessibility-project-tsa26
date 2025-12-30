@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offerings - Accessibility Interface</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="site-header">
+        <nav class="nav-container">
+            <a href="/index.html" class="nav-brand">Accessibility Interface</a>
+            <ul class="nav-links">
+                <li><a href="/index.html" class="nav-link">Home</a></li>
+                <li><a href="offerings.html" class="nav-link active">Offerings</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="playground.html" class="nav-link">Playground</a></li>
+                <li><a href="updates.html" class="nav-link">Dev Updates</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="login.html" class="nav-action nav-login">Log in</a>
+                <a href="get-started.html" class="nav-action nav-cta">Get Started</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <div id="canvas-container">
+                <canvas id="webCanvas"></canvas>
+            </div>
+            <div class="parallax-group content">
+                <h1 class="main-title">Offerings</h1>
+                <p class="subtitle">What we build and explore</p>
+            </div>
+        </section>
+
+        <section class="intro-section">
+            <p class="intro-text" style="text-align: center;">We currently provide two core solutions designed to enhance digital accessibility immediately.</p>
+        </section>
+
+        <section class="why-section">
+            <h2 class="section-heading">Live Captions</h2>
+            <p class="section-text">A downloadable Live Captions tool that runs locally (Windows demo). It listens to system audio and displays captions in a small always-on-top window.</p>
+            <div class="offering-actions" data-type="captions" style="margin-top: 1.5rem;"></div>
+
+            <h2 class="section-heading" style="margin-top: 2.5rem;">Magnification</h2>
+            <p class="section-text">A downloadable Magnification tool that runs locally (Windows demo). It provides a lens/bar overlay that magnifies whatever is under your cursor while you use other apps.</p>
+            <div class="offering-actions" data-type="magnification" style="margin-top: 1.5rem;"></div>
+
+            <div id="offerings-login-cta" class="offerings-login-cta">
+                <a href="login.html" class="cta-button" style="text-decoration: none;">To download you need to log in</a>
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/demo-auth.js" defer></script>
+</body>
+</html>

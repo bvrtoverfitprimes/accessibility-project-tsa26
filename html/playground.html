@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playground - Accessibility Interface</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="site-header">
+        <nav class="nav-container">
+            <a href="/index.html" class="nav-brand">Accessibility Interface</a>
+            <ul class="nav-links">
+                <li><a href="/index.html" class="nav-link">Home</a></li>
+                <li><a href="offerings.html" class="nav-link">Offerings</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="playground.html" class="nav-link active">Playground</a></li>
+                <li><a href="updates.html" class="nav-link">Dev Updates</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="login.html" class="nav-action nav-login">Log in</a>
+                <a href="get-started.html" class="nav-action nav-cta">Get Started</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <div id="canvas-container">
+                <canvas id="webCanvas"></canvas>
+            </div>
+            <div class="parallax-group content">
+                <h1 class="main-title">Playground</h1>
+                <p class="subtitle">Interactive demos and experiments</p>
+            </div>
+        </section>
+
+        <section class="intro-section">
+            <p class="intro-text">Explore small, interactive prototypes that demonstrate how accessibility tools can work in real time.</p>
+        </section>
+
+        <section class="why-section">
+            <div class="playground-split">
+                <div class="playground-copy">
+                    <h2 class="section-heading">Circle Magnification</h2>
+                    <p class="section-text">This tool is a simple circular magnifier that enlarges anything directly underneath it. Move your cursor over the demo to see the lens follow your pointer.</p>
+                    <p class="section-text">Use this for quick, precise focus—like reading small UI labels, icons, or dense text without changing the page layout.</p>
+
+                    <div class="demo-toolbar">
+                        <label class="demo-label" for="circle-zoom">Zoom</label>
+                        <input id="circle-zoom" class="demo-range" type="range" min="1.2" max="2.6" step="0.1" value="1.8" aria-label="Circle magnifier zoom" />
+                    </div>
+                </div>
+
+                <div class="playground-demo">
+                    <div id="circle-demo-area" class="magnifier-area" aria-label="Circle magnification demo area">
+                        <div class="magnifier-source">
+                            <h3 class="demo-title">Sample text (poem)</h3>
+                            <p class="demo-text">I wandered lonely as a cloud<br>
+                            That floats on high o'er vales and hills,<br>
+                            When all at once I saw a crowd,<br>
+                            A host, of golden daffodils;</p>
+                            <p class="demo-text">Continuous as the stars that shine<br>
+                            And twinkle on the milky way,<br>
+                            They stretched in never-ending line<br>
+                            Along the margin of a bay.</p>
+                        </div>
+
+                        <div id="circle-lens" class="magnifier-lens" aria-hidden="true">
+                            <div class="magnifier-content"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="why-section">
+            <div class="playground-split reverse">
+                <div class="playground-demo">
+                    <div id="bar-demo-area" class="magnifier-area" aria-label="Reading bar magnification demo area">
+                        <div class="magnifier-source">
+                            <h3 class="demo-title">Reading sample (legal / book style)</h3>
+                            <p class="demo-text">Section 1. Definitions. For the purposes of this document, “User” refers to any individual who accesses the platform. “Service” refers to the tools and features provided locally for demonstration.</p>
+                            <p class="demo-text">Section 2. Use. You may use the Service to review and test accessibility concepts. All data remains on your device for this demo, unless you choose to run the local server.</p>
+                            <p class="demo-text">Section 3. Accessibility. Magnification can help users read long-form content such as contracts, legal documents, and books online with less strain.</p>
+                        </div>
+
+                        <div id="bar-lens" class="magnifier-bar" aria-hidden="true">
+                            <div class="magnifier-content"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="playground-copy">
+                    <h2 class="section-heading">Bar / Line Magnification</h2>
+                    <p class="section-text">This magnifier behaves like a reading bar: it stretches across the screen from left to right and magnifies a horizontal slice of content.</p>
+                    <p class="section-text">It’s especially helpful for reading long documents (legal text, books, research) because you can keep your place while zooming in without losing context.</p>
+
+                    <div class="demo-toolbar">
+                        <label class="demo-label" for="bar-zoom">Zoom</label>
+                        <input id="bar-zoom" class="demo-range" type="range" min="1.2" max="2.6" step="0.1" value="1.8" aria-label="Bar magnifier zoom" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="why-section">
+            <div class="playground-split">
+                <div class="playground-copy">
+                    <h2 class="section-heading">Live Captions</h2>
+                    <p class="section-text">Many videos online don't include captions or subtitles. The downloadable Live Captions tool transcribes system audio in real time using Whisper.</p>
+                    <p class="section-text">This on-page player is a simulated demo: press <strong>Play</strong> to see how captions would appear as the "speaker" explains the derivation of the quadratic formula.</p>
+                </div>
+
+                <div class="playground-demo">
+                    <div class="fake-video-container">
+                        <div class="fake-video-screen" id="fake-video-screen">
+                            <div class="fake-video-content">
+                                <p class="fake-video-title">Deriving the Quadratic Formula</p>
+                                <p class="fake-video-equation">ax² + bx + c = 0</p>
+                            </div>
+                            <div class="fake-video-captions" id="fake-captions" aria-live="polite"></div>
+                        </div>
+                        <div class="fake-video-controls">
+                            <button type="button" class="fake-control-btn" id="fake-play-btn" aria-label="Play">
+                                <svg class="play-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                                <svg class="pause-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="display:none;"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                            </button>
+                            <div class="fake-progress-wrapper">
+                                <div class="fake-progress-bar">
+                                    <div class="fake-progress-fill" id="fake-progress-fill"></div>
+                                </div>
+                                <span class="fake-time" id="fake-time">0:00 / 0:30</span>
+                            </div>
+                            <button type="button" class="fake-control-btn" id="fake-volume-btn" aria-label="Volume">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><polygon points="11,5 6,9 2,9 2,15 6,15 11,19"/><path d="M15.54 8.46a5 5 0 0 1 0 7.08" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+                            </button>
+                            <button type="button" class="fake-control-btn disabled" aria-label="Captions unavailable" title="Captions unavailable on original video">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="4" x2="22" y2="20"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/playground.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Updates - Accessibility Interface</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="no-scroll-indicator">
+
+    <header class="site-header">
+        <nav class="nav-container">
+            <a href="/index.html" class="nav-brand">Accessibility Interface</a>
+            <ul class="nav-links">
+                <li><a href="/index.html" class="nav-link">Home</a></li>
+                <li><a href="offerings.html" class="nav-link">Offerings</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="playground.html" class="nav-link">Playground</a></li>
+                <li><a href="updates.html" class="nav-link active">Dev Updates</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="login.html" class="nav-action nav-login">Log in</a>
+                <a href="get-started.html" class="nav-action nav-cta">Get Started</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="hero-section updates-hero">
+            <div id="canvas-container">
+                <canvas id="webCanvas"></canvas>
+            </div>
+            <div class="updates-hero-inner">
+                <div class="updates-title parallax-group">
+                    <h1 class="main-title">Dev Updates</h1>
+                </div>
+                <div class="updates-feed" aria-live="polite">
+                    <!-- future entries will appear here -->
+                    <div class="update-entry">
+                        <div class="update-header"><strong>v1.4</strong></div>
+                        <div class="update-body">Fixed and unified the UI across the entire site.</div>
+                    </div>
+                    <div class="update-entry">
+                        <div class="update-header"><strong>v1.3</strong></div>
+                        <div class="update-body">Improved transcription speed by optimizing the Whisper model configuration.</div>
+                    </div>
+                    <div class="update-entry">
+                        <div class="update-header"><strong>v1.2</strong></div>
+                        <div class="update-body">General bug fixes and stability improvements across the project.</div>
+                    </div>
+                    <div class="update-entry">
+                        <div class="update-header"><strong>v1.1</strong></div>
+                        <div class="update-body">Added Live Captions as a downloadable tool.</div>
+                    </div>
+                    <div class="update-entry">
+                        <div class="update-header"><strong>v1.0</strong></div>
+                        <div class="update-body">Formally released the Magnification tool for download and use.</div>
+                    </div>
+                    <div class="update-entry">
+                        <div class="update-header"><strong>v0.6</strong></div>
+                        <div class="update-body">Introduced user flow control and admin access control, including the admin portal and protected Users management flow.</div>
+                    </div>
+                    <div class="update-entry">
+                        <div class="update-header"><strong>v0.5</strong></div>
+                        <div class="update-body">Added the Live Captions playground demo with the fake video player and transcribed captions.</div>
+                    </div>
+                    <div class="update-entry">
+                        <div class="update-header"><strong>v0.4</strong></div>
+                        <div class="update-body">Launched the Playground with Circle and Bar magnification demos plus zoom controls.</div>
+                    </div>
+                    <div class="update-entry">
+                        <div class="update-header"><strong>v0.3</strong></div>
+                        <div class="update-body">Added About Us and Offerings pages.</div>
+                    </div>
+                    <div class="update-entry">
+                        <div class="update-header"><strong>v0.2</strong></div>
+                        <div class="update-body">Added logging in and sign up functionality.</div>
+                    </div>
+                    <div class="update-entry">
+                        <div class="update-header"><strong>v0.1</strong></div>
+                        <div class="update-body">Created the website, navbar, and basic text.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="../js/main.js" defer></script>
+</body>
+</html>

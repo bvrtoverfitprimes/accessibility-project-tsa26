@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav-container">
+            <a href="/index.html" class="nav-brand">Accessibility Interface</a>
+            <ul class="nav-links">
+                <li><a href="/index.html" class="nav-link">Home</a></li>
+                <li><a href="offerings.html" class="nav-link">Offerings</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="playground.html" class="nav-link">Playground</a></li>
+                <li><a href="updates.html" class="nav-link">Dev Updates</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="login.html" class="nav-action nav-login">Log in</a>
+                <a href="get-started.html" class="nav-action nav-cta">Get Started</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="intro-section" style="padding-top:6rem;">
+            <div class="signup-grid">
+                <div class="signup-info">
+                    <h2 class="section-heading">Welcome back</h2>
+                    <p class="section-text">Sign in to access your saved prototypes and personalized settings.</p>
+                </div>
+
+                <div class="signup-panel">
+                    <form action="#" data-server-action="/login" method="post" class="login-form clean-form">
+                        <div class="form-row">
+                            <label class="form-label">Username
+                                <input name="username" required class="form-input">
+                            </label>
+                        </div>
+
+                        <div class="form-row">
+                            <label class="form-label">Password
+                                <input type="password" name="password" required class="form-input">
+                            </label>
+                        </div>
+
+                        <div class="form-row actions">
+                            <button type="submit" class="cta-button">Log In</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/main.js" defer></script>
+</body>
+</html>
