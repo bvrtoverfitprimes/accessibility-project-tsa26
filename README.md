@@ -4,7 +4,7 @@ TSA 2025–2026 project developing a cross-platform accessibility platform for u
 
 ## Clone & open in VS Code
 
-### Option A — VS Code UI (recommended)
+### Option A - VS Code UI (recommended)
 
 1. Open VS Code.
 2. Press `Ctrl+Shift+P` (Windows) / `Cmd+Shift+P` (macOS).
@@ -17,7 +17,7 @@ https://github.com/bvrtoverfitprimes/accessibility-project-tsa26
 
 5. When prompted, click **Open**.
 
-### Option B — Terminal
+### Option B - Terminal
 
 ```bash
 git clone https://github.com/bvrtoverfitprimes/accessibility-project-tsa26
