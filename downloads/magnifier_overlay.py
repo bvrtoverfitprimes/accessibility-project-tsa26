@@ -1,3 +1,7 @@
+
+
+# ------------OLD------------
+
 import sys
 import time
 import tkinter as tk
@@ -10,15 +14,10 @@ except Exception as e:
     print("Missing dependency pyautogui. Run: pip install -r requirements.txt")
     raise
 
-
-# Simple always-on-top magnifier window.
-# It captures a square region around the cursor and shows a zoomed-in view.
-# The window follows the cursor with a small offset, so it’s not directly on the mouse.
-
-CAPTURE_SIZE = 160  # px captured from the screen (square)
-WINDOW_SIZE = 220   # px shown in the window (square)
-OFFSET_X = 28       # px offset from cursor
-OFFSET_Y = 28       # px offset from cursor
+CAPTURE_SIZE = 160 
+WINDOW_SIZE = 220 
+OFFSET_X = 28      
+OFFSET_Y = 28     
 FPS = 30
 
 
@@ -28,11 +27,10 @@ class MagnifierApp:
 
         self.root = tk.Tk()
         self.root.title("Magnifier (Demo)")
-        self.root.overrideredirect(True)  # borderless
+        self.root.overrideredirect(True)
         self.root.attributes("-topmost", True)
         self.root.configure(bg="black")
 
-        # Slight transparency so it feels like an overlay
         try:
             self.root.attributes("-alpha", 0.95)
         except Exception:
@@ -79,7 +77,6 @@ class MagnifierApp:
         right = x + half
         bottom = y + half
 
-        # Clamp to screen bounds (ImageGrab can throw if bbox is invalid)
         sw, sh = pyautogui.size()
         left = max(0, min(left, sw - 1))
         top = max(0, min(top, sh - 1))
@@ -91,12 +88,9 @@ class MagnifierApp:
         except Exception:
             return
 
-        # Apply zoom by resizing the captured region into the window size
         target = int(WINDOW_SIZE)
         zoomed = img.resize((target, target), resample=Image.Resampling.NEAREST)
 
-        # Draw a simple crosshair in the center (optional)
-        # Keep it subtle: just a small dot.
         cx = target // 2
         cy = target // 2
         pixels = zoomed.load()
@@ -104,17 +98,15 @@ class MagnifierApp:
             for dy in range(-2, 3):
                 px = max(0, min(target - 1, cx + dx))
                 py = max(0, min(target - 1, cy + dy))
-                pixels[px, py] = (122, 162, 255)  # matches --accent-primary
+                pixels[px, py] = (122, 162, 255)
 
         self._tk_img = ImageTk.PhotoImage(zoomed)
         self.canvas.delete("all")
         self.canvas.create_image(0, 0, anchor="nw", image=self._tk_img)
 
-        # Move the window near the cursor (offset so it’s not on top of mouse)
         wx = x + OFFSET_X
         wy = y + OFFSET_Y
 
-        # Keep within screen
         wx = max(0, min(wx, sw - WINDOW_SIZE))
         wy = max(0, min(wy, sh - WINDOW_SIZE))
 
