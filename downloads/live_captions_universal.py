@@ -149,21 +149,12 @@ class App:
         self.root.configure(bg=BG_VOID)
         self.root.attributes("-topmost", True)
 
-        self._drag_start_x = 0
-        self._drag_start_y = 0
-        self._win_start_x = 0
-        self._win_start_y = 0
-
         self.root.config(highlightthickness=1, highlightbackground=BORDER_HAIRLINE)
 
         self.title_bar = tk.Frame(self.root, bg=BG_VOID, height=40)
         self.title_bar.pack(fill="x", padx=20)
-        self.title_bar.pack_propagate(False)
-        self.title_bar.bind("<ButtonPress-1>", self.start_move)
+        self.title_bar.bind("<Button-1>", self.start_move)
         self.title_bar.bind("<B1-Motion>", self.do_move)
-
-        self.controls = tk.Frame(self.title_bar, bg=BG_VOID)
-        self.controls.pack(side="right", pady=(10, 0))
 
         self.header_lbl = tk.Label(
             self.title_bar,
@@ -173,35 +164,19 @@ class App:
             font=("Segoe UI Light", 10)
         )
         self.header_lbl.pack(side="left", pady=(15, 0))
-        self.header_lbl.bind("<ButtonPress-1>", self.start_move)
-        self.header_lbl.bind("<B1-Motion>", self.do_move)
 
         self.close_btn = tk.Label(
-            self.controls,
+            self.title_bar,
             text="×",
             bg=BG_VOID,
             fg=TEXT_DIM,
             font=("Arial", 18),
             cursor="hand2"
         )
-        self.close_btn.pack(side="left", padx=(0, 10))
+        self.close_btn.pack(side="right", pady=(10, 0))
         self.close_btn.bind("<Enter>", lambda e: self.close_btn.config(fg=ACCENT_RED))
         self.close_btn.bind("<Leave>", lambda e: self.close_btn.config(fg=TEXT_DIM))
-        self.close_btn.bind("<ButtonRelease-1>", self._on_close)
-
-        self.move_btn = tk.Label(
-            self.controls,
-            text="⊕",
-            bg=BG_VOID,
-            fg=TEXT_DIM,
-            font=("Arial", 16),
-            cursor="fleur"
-        )
-        self.move_btn.pack(side="left")
-        self.move_btn.bind("<Enter>", lambda e: self.move_btn.config(fg=TEXT_STARK))
-        self.move_btn.bind("<Leave>", lambda e: self.move_btn.config(fg=TEXT_DIM))
-        self.move_btn.bind("<ButtonPress-1>", self.start_move)
-        self.move_btn.bind("<B1-Motion>", self.do_move)
+        self.close_btn.bind("<Button-1>", lambda e: self.quit())
 
         self.display = scrolledtext.ScrolledText(
             self.root,
@@ -244,19 +219,13 @@ class App:
         self.display.see("end")
 
     def start_move(self, event):
-        self._drag_start_x = event.x_root
-        self._drag_start_y = event.y_root
-        self._win_start_x = self.root.winfo_x()
-        self._win_start_y = self.root.winfo_y()
+        self.x = event.x
+        self.y = event.y
 
     def do_move(self, event):
-        x = self._win_start_x + (event.x_root - self._drag_start_x)
-        y = self._win_start_y + (event.y_root - self._drag_start_y)
+        x = self.root.winfo_x() + (event.x - self.x)
+        y = self.root.winfo_y() + (event.y - self.y)
         self.root.geometry(f"+{x}+{y}")
-
-    def _on_close(self, _event):
-        self.quit()
-        return "break"
 
     def quit(self):
         self.running = False
