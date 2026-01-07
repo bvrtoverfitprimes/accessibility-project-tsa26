@@ -164,6 +164,22 @@ class App:
             font=("Segoe UI Light", 10)
         )
         self.header_lbl.pack(side="left", pady=(15, 0))
+        self.header_lbl.bind("<Button-1>", self.start_move)
+        self.header_lbl.bind("<B1-Motion>", self.do_move)
+
+        self.move_btn = tk.Label(
+            self.title_bar,
+            text="↕",
+            bg=BG_VOID,
+            fg=TEXT_DIM,
+            font=("Arial", 16),
+            cursor="fleur"
+        )
+        self.move_btn.pack(side="right", pady=(10, 0), padx=(0, 10))
+        self.move_btn.bind("<Enter>", lambda e: self.move_btn.config(fg=TEXT_STARK))
+        self.move_btn.bind("<Leave>", lambda e: self.move_btn.config(fg=TEXT_DIM))
+        self.move_btn.bind("<Button-1>", self.start_move)
+        self.move_btn.bind("<B1-Motion>", self.do_move)
 
         self.close_btn = tk.Label(
             self.title_bar,
