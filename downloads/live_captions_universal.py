@@ -2,8 +2,30 @@ import sys
 import threading
 import time
 import queue
-import numpy as np
 from collections import deque
+
+import subprocess
+import importlib
+
+
+def _ensure_packages(packages):
+    missing = []
+    for pkg, mod in packages:
+        try:
+            importlib.import_module(mod)
+        except Exception:
+            missing.append(pkg)
+    if missing:
+        subprocess.check_call([sys.executable, "-m", "pip", "install", *missing])
+
+
+_ensure_packages([
+    ("numpy", "numpy"),
+    ("scipy", "scipy"),
+    ("faster-whisper", "faster_whisper"),
+])
+
+import numpy as np
 from scipy import signal
 
 if sys.platform == "win32":
@@ -11,7 +33,20 @@ if sys.platform == "win32":
 
 import tkinter as tk
 from tkinter import scrolledtext
-import pyaudiowpatch as pyaudio
+
+try:
+    import pyaudiowpatch as pyaudio
+except Exception:
+    try:
+        import pyaudio
+    except Exception:
+        try:
+            subprocess.check_call([sys.executable, "-m", "pip", "install", "PyAudio"])
+            import pyaudio
+        except Exception:
+            subprocess.check_call([sys.executable, "-m", "pip", "install", "sounddevice"])
+            raise
+
 from faster_whisper import WhisperModel
 
 MODEL_SIZE = "tiny.en"

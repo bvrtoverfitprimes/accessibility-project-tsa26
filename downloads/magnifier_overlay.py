@@ -6,13 +6,29 @@ import sys
 import time
 import tkinter as tk
 
+import subprocess
+import importlib
+
+
+def _ensure_packages(packages):
+    missing = []
+    for pkg, mod in packages:
+        try:
+            importlib.import_module(mod)
+        except Exception:
+            missing.append(pkg)
+    if missing:
+        subprocess.check_call([sys.executable, "-m", "pip", "install", *missing])
+
+
+_ensure_packages([
+    ("Pillow", "PIL"),
+    ("pyautogui", "pyautogui"),
+])
+
 from PIL import Image, ImageGrab, ImageTk
 
-try:
-    import pyautogui
-except Exception as e:
-    print("Missing dependency pyautogui. Run: pip install -r requirements.txt")
-    raise
+import pyautogui
 
 CAPTURE_SIZE = 160 
 WINDOW_SIZE = 220 
