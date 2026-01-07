@@ -149,11 +149,17 @@ class App:
         self.root.configure(bg=BG_VOID)
         self.root.attributes("-topmost", True)
 
+        self._drag_start_x = 0
+        self._drag_start_y = 0
+        self._win_start_x = 0
+        self._win_start_y = 0
+
         self.root.config(highlightthickness=1, highlightbackground=BORDER_HAIRLINE)
 
         self.title_bar = tk.Frame(self.root, bg=BG_VOID, height=40)
         self.title_bar.pack(fill="x", padx=20)
-        self.title_bar.bind("<Button-1>", self.start_move)
+        self.title_bar.pack_propagate(False)
+        self.title_bar.bind("<ButtonPress-1>", self.start_move)
         self.title_bar.bind("<B1-Motion>", self.do_move)
 
         self.controls = tk.Frame(self.title_bar, bg=BG_VOID)
@@ -167,7 +173,7 @@ class App:
             font=("Segoe UI Light", 10)
         )
         self.header_lbl.pack(side="left", pady=(15, 0))
-        self.header_lbl.bind("<Button-1>", self.start_move)
+        self.header_lbl.bind("<ButtonPress-1>", self.start_move)
         self.header_lbl.bind("<B1-Motion>", self.do_move)
 
         self.close_btn = tk.Label(
@@ -181,10 +187,11 @@ class App:
         self.close_btn.pack(side="left", padx=(0, 10))
         self.close_btn.bind("<Enter>", lambda e: self.close_btn.config(fg=ACCENT_RED))
         self.close_btn.bind("<Leave>", lambda e: self.close_btn.config(fg=TEXT_DIM))
+        self.close_btn.bind("<ButtonRelease-1>", self._on_close)
 
         self.move_btn = tk.Label(
             self.controls,
-            text="↕",
+            text="⊕",
             bg=BG_VOID,
             fg=TEXT_DIM,
             font=("Arial", 16),
@@ -193,9 +200,7 @@ class App:
         self.move_btn.pack(side="left")
         self.move_btn.bind("<Enter>", lambda e: self.move_btn.config(fg=TEXT_STARK))
         self.move_btn.bind("<Leave>", lambda e: self.move_btn.config(fg=TEXT_DIM))
-
-        self.close_btn.bind("<Button-1>", self._on_close)
-        self.move_btn.bind("<Button-1>", self.start_move)
+        self.move_btn.bind("<ButtonPress-1>", self.start_move)
         self.move_btn.bind("<B1-Motion>", self.do_move)
 
         self.display = scrolledtext.ScrolledText(
